@@ -46,7 +46,7 @@ interface MarsApiService{
     suspend fun getProperties(@Query("filter") type: String): List<MarsProperty>
 
     @GET("photos")
-    suspend fun getPhotos(): String
+    suspend fun getPhotos(): List<MarsPhoto>
 }
 
 object MarsApi{

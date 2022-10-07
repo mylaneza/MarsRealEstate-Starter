@@ -98,8 +98,13 @@ class OverviewViewModel : ViewModel() {
 
     private fun getMarsPhotos(){
         viewModelScope.launch {
+            try{
             val listResult = MarsApi.retrofitService.getPhotos()
             _status.value = MarsApiStatus.DONE
+            }catch (e: Exception){
+                _status.value = MarsApiStatus.ERROR
+            }
+
         }
     }
 
