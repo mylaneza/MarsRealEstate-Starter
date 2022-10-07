@@ -96,6 +96,13 @@ class OverviewViewModel : ViewModel() {
         )*/
     }
 
+    private fun getMarsPhotos(){
+        viewModelScope.launch {
+            val listResult = MarsApi.retrofitService.getPhotos()
+            _status.value = MarsApiStatus.DONE
+        }
+    }
+
     fun updateFilter(filter: MarsApiFilter){
         getMarsRealEstateProperties(filter)
     }
